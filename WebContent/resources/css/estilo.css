@@ -1,0 +1,46 @@
+section#section-login h1{
+    text-align: center;
+}
+section#section-login form#section-auth{
+    width: 100%;
+    max-width: 580px;
+    margin: 30px auto 0;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+section#section-login form#section-auth input{
+    margin: 5px;
+    height: 38px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    padding: 0 20px;
+}
+
+section#section-login form#section-auth .form-opcao{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#btn-logar{
+  background: black;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 0;
+  color: #FFF;
+
+}
+
+#btn-logar:hover{
+  background: #000999;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 0;
+  color: #FFF;
+
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap-grid.min.css" />
+</h:head> 
+<body>
+	<br/><br />
+	<section id="cadastrar-empresa">
+    <h1>Cadastrar Empresa</h1>
+    <hr/>
+    <div class="container-fluid">
+        <h:form id="form-cadastro-cliente">
+            <div class="row">
+                <div class="col-6 pessoal">
+                    <h3>Dados Da Empresa</h3>
+                    <hr/>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="textNome">Razão Social:</label>
+                            <h:inputText class="form-control" id="textNome" value="#{controllerEmpresa.empresa.razaoSocial}"/>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="textSobrenome">CNPJ:</label>
+                            <h:inputText class="form-control" id="textSobrenome" value="#{controllerEmpresa.empresa.cnpj}"/>
+                        </div>
+                    </div>
+             
+                </div>
+                <div class="col-6 end">
+                    <h3>Endereço</h3>
+                    <hr/>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="textCep">CEP:</label>
+                            <h:inputText class="form-control" id="textCep" value="#{controllerEmpresa.endereco.cep}"/>
+                        </div>
+                        <div class="form-group col-8">
+                            <label for="textRua">Rua:</label>
+                            <h:inputText class="form-control" id="textRua" value="#{controllerEmpresa.endereco.rua}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="textComplemento">Complemento</label>
+                            <h:inputText class="form-control" id="textComplemento" value="#{controllerEmpresa.endereco.complemento}"/>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="textBarrio">Bairro</label>
+                            <h:inputText class="form-control" id="textBairro" value="#{controllerEmpresa.endereco.bairro}"/>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="textCidade">Cidade</label>
+                            <h:inputText class="form-control" id="textCidade" value="#{controllerEmpresa.endereco.cidade}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-2">
+                            <label for="textUf">UF</label>
+                            <h:inputText class="form-control" id="textUf" value="#{controllerEmpresa.endereco.uf}"/>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="textNumero">Número</label>
+                            <h:inputText class="form-control" id="textNumero" value="#{controllerEmpresa.endereco.numero}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row rowAuth">
+                <div class="col-12 auth">
+                    <h3>Autenticação</h3>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-12 form-group" >
+                            <h:inputText id="textLogin" class="form-control" value="#{controllerEmpresa.login.login}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <h:inputText type="password" class="form-control" value="#{controllerEmpresa.login.senha}"/>
+                        </div>
+                    </div>
+                    <h:commandButton action="#{controllerEmpresa.save()}" value="Cadastrar-se"/>
+                </div>
+            </div>
+        </h:form>
+    </div>
+</section>
+	
+</body> 
+</html>

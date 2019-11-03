@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap-grid.min.css" />
+	
+</h:head>
+<body>
+	<nav class="navbar navbar-light bg-dark">
+	  <a class="navbar-brand" href="#">
+	    <h5 class="text-white" >SERVICE FOOD</h5>
+	  </a>
+	</nav>
+	<div id="response">
+		<h:outputLabel value="#{controllerCliente.response}"/>
+		<h:outputLabel value="#{controllerEmpresa.response}"/>
+	</div>
+	<br/><br />
+	<div class="container">
+		<h3 id="titulo" class="centralizar" style="display: flex; justify-content: center;">Escolha um perfil</h3><br/>
+		<div class="main centralizar" style="display: flex; justify-content: center;">
+			<div class="row form-opcao">
+				<div class="custom-control custom-radio custom-control-inline ">
+					<input type="radio" id="radio-cliente"
+						name="radio-cliente" class="custom-control-input " /> <label
+						class="custom-control-label" for="radio-cliente">Entrar
+						como cliente</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="radio-empresa"
+						name="radio-cliente" class="custom-control-input" /> <label
+						class="custom-control-label" for="radio-empresa">Entrar
+						como empresa</label>
+				</div>
+			</div>
+		</div>
+		<div class="cadastro-escolha">
+			<div class="tipo-cadastro">
+			
+			</div>
+		</div>
+	</div>
+	<script src="/ServiceFood/resources/js/jquery.js"/>
+		
+	<script>
+		$('#radio-cliente').on('click', function(){
+			$('.tipo-cadastro').load('/ServiceFood/cadastro/cliente.xhtml');
+		})
+			$('#radio-empresa').on('click', function(){
+			$('.tipo-cadastro').load('/ServiceFood/cadastro/empresa.xhtml');
+		})
+	</script>
+</body>
+
+</html>

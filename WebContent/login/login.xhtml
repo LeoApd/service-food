@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="resources/css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap-grid.min.css" />
+	
+</h:head>
+<h:body>
+	<nav class="navbar navbar-light bg-dark">
+	  <a class="navbar-brand" href="#">
+	    <h5 class="text-white" >SERVICE FOOD</h5>
+	  </a>
+	</nav>
+	<br/><br />
+	<div class="cointainer-fluid">
+		<section id="section-login">
+		<h1>Login</h1>
+		<hr/>
+		<h:form id="section-auth">
+			<h:inputText id="txtLogin" value="#{controllerLogin.login.login}">
+				<f:passThroughAttribute name="placeholder" value="Login" />
+			</h:inputText> 
+			<h:inputSecret id="txtSenha" value="#{controllerLogin.login.senha}">
+				<f:passThroughAttribute name="placeholder" value="Senha" />
+			</h:inputSecret>
+			<div class="row form-opcao">
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="customRadioInline1"
+						name="customRadioInline1" class="custom-control-input"/> <label
+						class="custom-control-label" for="customRadioInline1">Entrar como cliente</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="customRadioInline2"
+						name="customRadioInline1" class="custom-control-input"/> <label
+						class="custom-control-label" for="customRadioInline2">Entrar como empresa</label>
+				</div>
+			</div> <br />
+			<h:commandButton id="btn-logar" value="ENTRAR"/>
+			<br />
+			<div class="form-opcao">
+				<a href="#">Esqueci a senha</a> <a href="cadastro/cadastro.xhtml">Cadastre-se</a>
+			</div>
+		</h:form>
+		</section>
+	</div>
+</h:body>
+</html>
