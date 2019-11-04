@@ -5,9 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="resources/css/estilo.css" />
-	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap-grid.min.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap-grid.min.css" />
 	
 </h:head>
 <h:body>
@@ -18,6 +18,9 @@
 	</nav>
 	<br/><br />
 	<div class="cointainer-fluid">
+		<div id="response">
+			<h:messages />
+		</div>
 		<section id="section-login">
 		<h1>Login</h1>
 		<hr/>
@@ -29,18 +32,16 @@
 				<f:passThroughAttribute name="placeholder" value="Senha" />
 			</h:inputSecret>
 			<div class="row form-opcao">
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline1"
-						name="customRadioInline1" class="custom-control-input"/> <label
-						class="custom-control-label" for="customRadioInline1">Entrar como cliente</label>
-				</div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline2"
-						name="customRadioInline1" class="custom-control-input"/> <label
-						class="custom-control-label" for="customRadioInline2">Entrar como empresa</label>
-				</div>
+				<h:selectOneRadio value="#{controllerLogin.tipoLogin}"> 
+					<div class="custom-control custom-radio custom-control-inline">
+						<f:selectItem itemValue="cliente" styleClass="custom-control-input" itemLabel="Entrar como cliente" /> 
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<f:selectItem itemValue="empresa" styleClass="custom-control-input" itemLabel="Entrar como empresa" />
+					</div>
+				</h:selectOneRadio>    
 			</div> <br />
-			<h:commandButton id="btn-logar" value="ENTRAR"/>
+			<h:commandButton id="btn-logar" value="ENTRAR" action="#{controllerLogin.login()}"/>
 			<br />
 			<div class="form-opcao">
 				<a href="#">Esqueci a senha</a> <a href="cadastro/cadastro.xhtml">Cadastre-se</a>

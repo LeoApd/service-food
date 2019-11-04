@@ -2,16 +2,19 @@ package br.com.servicefood.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.servicefood.connection.Conexao;
 import br.com.servicefood.model.Cliente;
+import br.com.servicefood.model.Endereco;
+import br.com.servicefood.model.Login;
 
 public class ClienteDAO{
 	
 	private static final String INSERT = "INSERT INTO CLIENTE (ID_CLIENTE, NOME, SOBRENOME, CPF, RG, EMAIL, LOGIN, SENHA, CEP, RUA, COMPLEMENTO, BAIRRO, CIDADE, UF, NUMERO)" + 
 										 " VALUES(SQ_CLIENTE.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	
+	private static final String SELECT_ID = "SELECT * FROM CLIENTE WHERE ID_CLIENTE = ?";
 	Connection conn = null;
 	
 	public boolean save(Cliente cliente) {
@@ -48,6 +51,52 @@ public class ClienteDAO{
 		}finally {
 			Conexao.closeConnection(conn, stmt);
 		}
+	}
+
+	public Cliente find(long id) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Cliente cliente = null;
+		Login login = null;
+		Endereco endereco = null;
+		try {
+			conn = Conexao.getConnection();
+			stmt = conn.prepareStatement(SELECT_ID);
+			stmt.setLong(1, id);
+			
+			rs = stmt.executeQuery();
+		
+			if(rs.next()) {
+				cliente = new Cliente();
+				cliente.setId(rs.getLong("ID_CLIENTE"));
+				cliente.setNome(rs.getString("NOME"));
+				cliente.setCpf(rs.getString("CPF"));
+				cliente.setEmail(rs.getString("EMAIL"));
+				cliente.setRg(rs.getString("RG"));
+				cliente.setSobrenome(rs.getString("SOBRENOME"));
+				
+				endereco = new Endereco();
+				endereco.setUf(rs.getString("UF"));
+				endereco.setBairro(rs.getString("BAIRRO"));
+				endereco.setCidade(rs.getString("CIDADE"));
+				endereco.setCep(rs.getString("CEP"));
+				endereco.setNumero(rs.getString("NUMERO"));
+				endereco.setComplemento(rs.getString("COMPLEMENTO"));
+				cliente.setEndereco(endereco);
+				
+				login = new Login();
+				login.setLogin(rs.getString("LOGIN"));
+				login.setSenha(rs.getString("SENHA"));
+				cliente.setLogin(login);
+				
+				return cliente;
+			}
+			
+		}catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
 	}
 	
 }

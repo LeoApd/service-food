@@ -4,6 +4,14 @@
   <welcome-file-list>
     <welcome-file>/login/login.xhtml</welcome-file>
   </welcome-file-list>
+  <filter>
+  	<filter-name>AuthFilter</filter-name>
+  	<filter-class>br.com.servicefood.filter.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>AuthFilter</filter-name>
+  	<url-pattern>/restricted/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -13,4 +21,5 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  
 </web-app>

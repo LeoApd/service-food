@@ -67,5 +67,11 @@ public class Cliente extends ClienteDAO{
 	public boolean save() {
 		return super.save(this);
 	}
-
+	
+	public Cliente find(long id) {
+		Cliente cliente = super.find(id);
+		return cliente;
+	}
+	
+	
 }

@@ -30,6 +30,16 @@ public class ControllerCliente {
 		return "cadastro";
 	}
 	
+	public String montarTelaPerfil(long id) {
+		Cliente clienteDB = new Cliente();
+		cliente = clienteDB.find(id);
+		return "";
+	}
+	
+	public String editar() {
+		return "";
+	}
+	
 	public String getTipoCliente() {
 		return tipoCliente;
 	}

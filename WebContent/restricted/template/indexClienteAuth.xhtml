@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/ServiceFood/resources/css/bootstrap-grid.min.css" />
+</h:head>
+<body>
+	<div class="corpo-main">
+		<div class="header">
+			<nav class="navbar navbar-light bg-dark ">
+		  		<a class="navbar-brand text-white" href="#">SERVICE FOOD</a>
+				<h:form styleClass="form-inline">
+					<div class="dropdown">
+						<a class="nav-link dropdown-toggle " role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <span class="text-white">Bem vindo <h:outputText value="#{controllerLogin.login.login}"/></span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+							<h:commandButton styleClass="dropdown-item" action="#{controllerCliente.montarTelaPerfil(controllerLogin.currentUser.id)}" value="Meu perfil" />
+							<h:commandButton styleClass="dropdown-item" action="#{controllerLogin.deslogar()}" value="Sair" /> 
+						</div>
+					</div>    	
+				</h:form>
+			</nav>
+		</div>
+		<br/>
+		<div class="corpo container-fluid">
+			<div class="row">
+				<div class="col-2">
+					<h4>Menu</h4>
+					<div class="menu-lateral">
+						<ul class="list-group">
+						  <li class="list-group-item d-flex justify-content-between align-items-center">
+						    <h:commandLink>
+						    	Meu perdidos
+						    </h:commandLink>
+						    <span class="badge badge-primary badge-pill">14</span>
+						  </li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-10">
+					<div class="bg" style="background-color: #f2f2f2">
+						<div style="display: flex;justify-content: center; padding-top: 2%;">
+							<h4>Empresas cadastradas</h4>
+						</div>
+						<hr />
+						<br />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/ServiceFood/resources/js/jquery.js"/>
+	<script src="/ServiceFood/resources/js/bootstrap.min.js"/>
+</body>
+</html>
