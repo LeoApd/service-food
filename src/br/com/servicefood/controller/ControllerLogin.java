@@ -23,10 +23,10 @@ public class ControllerLogin {
 	private CurrentUser currentUser = new CurrentUser();
 	private boolean isLoggerIn;
 	private String tipoLogin;
-
+	FacesContext context = null;
 	
 	public String login() {
-		FacesContext context = FacesContext.getCurrentInstance();
+		context = FacesContext.getCurrentInstance();
 		if(tipoLogin != null) {
 			if(tipoLogin.equalsIgnoreCase(CLIENTE)) {
 				CurrentUser user = new CurrentUser();
@@ -53,6 +53,8 @@ public class ControllerLogin {
 					context.getExternalContext().getFlash().setKeepMessages(true);
 					return "/login/login.xhtml";
 				}else {
+					currentUser.setId(user.getId());
+					currentUser.setNome(user.getNome());
 					isLoggerIn = true;
 					return "/restricted/template/indexEmpresaAuth.xhtml?faces-redirect=true";
 				}

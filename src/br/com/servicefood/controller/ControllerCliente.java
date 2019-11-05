@@ -1,8 +1,10 @@
 package br.com.servicefood.controller;
 
-
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
 
 import br.com.servicefood.model.Cliente;
 import br.com.servicefood.model.Endereco;
@@ -10,6 +12,7 @@ import br.com.servicefood.model.Login;
 
 @SuppressWarnings("deprecation")
 @ManagedBean
+@SessionScoped
 public class ControllerCliente {
 
 	private String tipoCliente;
@@ -33,7 +36,25 @@ public class ControllerCliente {
 	public String montarTelaPerfil(long id) {
 		Cliente clienteDB = new Cliente();
 		cliente = clienteDB.find(id);
-		return "";
+		this.endereco = cliente.getEndereco();
+		this.login = cliente.getLogin();
+		this.cliente = cliente;
+		return "/restricted/editarPerfil/perfilCliente.xhtml?faces-redirect=true";
+	}
+	
+	public String update(long id) {
+		cliente.setId(id);
+		cliente.setEndereco(endereco);
+		cliente.setLogin(login);
+		if(cliente.update(cliente)){
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário alterado com sucesso",""));
+			context.getExternalContext().getFlash().setKeepMessages(true);
+			return "/restricted/editarPerfil/perfilCliente.xhtml?faces-redirect=true";
+		}
+
+		return "/restricted/editarPerfil/perfilCliente.xhtml?faces-redirect=true";
+		
 	}
 	
 	public String editar() {

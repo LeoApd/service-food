@@ -1,1 +1,2 @@
 https://www.tutorialspoint.com/jsf/jsf_inputsecret_tag.htm
+https://www.mkyong.com/jsf2/jsf-2-repeat-tag-example/

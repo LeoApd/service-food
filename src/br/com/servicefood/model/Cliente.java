@@ -72,6 +72,9 @@ public class Cliente extends ClienteDAO{
 		Cliente cliente = super.find(id);
 		return cliente;
 	}
+	public boolean update(Cliente cliente) {
+		return super.update(cliente);	
+	}
 	
 	
 }

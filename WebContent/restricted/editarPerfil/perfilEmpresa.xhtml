@@ -51,39 +51,21 @@
 						<h:form id="form-cadastro-cliente">
 							<div class="row">
 								<div class="col-6 pessoal">
-									<h3>Dados Pessoais</h3>
+									<h3>Dados Da Empresa</h3>
 									<hr />
 									<div class="row">
 										<div class="form-group col-6">
-											<label for="textNome">Nome:</label>
-											<h:inputText styleClass="form-control" id="textNome"
-												value="#{controllerCliente.cliente.nome}" />
+											<label for="textNome">Razão Social:</label>
+											<h:inputText class="form-control" id="textNome"
+												value="#{controllerEmpresa.empresa.razaoSocial}" />
 										</div>
 										<div class="form-group col-6">
-											<label for="textSobrenome">Sobrenome:</label>
-											<h:inputText styleClass="form-control" id="textSobrenome"
-												value="#{controllerCliente.cliente.sobrenome}" />
+											<label for="textSobrenome">CNPJ:</label>
+											<h:inputText class="form-control" id="textSobrenome"
+												value="#{controllerEmpresa.empresa.cnpj}" />
 										</div>
 									</div>
-									<div class="row">
-										<div class="form-group col-6">
-											<label for="textCpf">CPF:</label>
-											<h:inputText class="form-control" id="textCpf"
-												value="#{controllerCliente.cliente.cpf}" />
-										</div>
-										<div class="form-group col-6">
-											<label for="textRg">RG:</label>
-											<h:inputText class="form-control" id="textRg"
-												value="#{controllerCliente.cliente.rg}" />
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-12">
-											<label for="textEmail">E-mail:</label>
-											<h:inputText class="form-control" id="textEmail"
-												value="#{controllerCliente.cliente.email}" />
-										</div>
-									</div>
+
 								</div>
 								<div class="col-6 end">
 									<h3>Endereço</h3>
@@ -92,41 +74,41 @@
 										<div class="form-group col-4">
 											<label for="textCep">CEP:</label>
 											<h:inputText class="form-control" id="textCep"
-												value="#{controllerCliente.endereco.cep}" />
+												value="#{controllerEmpresa.endereco.cep}" />
 										</div>
 										<div class="form-group col-8">
 											<label for="textRua">Rua:</label>
 											<h:inputText class="form-control" id="textRua"
-												value="#{controllerCliente.endereco.rua}" />
+												value="#{controllerEmpresa.endereco.rua}" />
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-4">
 											<label for="textComplemento">Complemento</label>
 											<h:inputText class="form-control" id="textComplemento"
-												value="#{controllerCliente.endereco.complemento}" />
+												value="#{controllerEmpresa.endereco.complemento}" />
 										</div>
 										<div class="form-group col-4">
 											<label for="textBarrio">Bairro</label>
 											<h:inputText class="form-control" id="textBairro"
-												value="#{controllerCliente.endereco.bairro}" />
+												value="#{controllerEmpresa.endereco.bairro}" />
 										</div>
 										<div class="form-group col-4">
 											<label for="textCidade">Cidade</label>
 											<h:inputText class="form-control" id="textCidade"
-												value="#{controllerCliente.endereco.cidade}" />
+												value="#{controllerEmpresa.endereco.cidade}" />
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-2">
 											<label for="textUf">UF</label>
 											<h:inputText class="form-control" id="textUf"
-												value="#{controllerCliente.endereco.uf}" />
+												value="#{controllerEmpresa.endereco.uf}" />
 										</div>
 										<div class="form-group col-4">
 											<label for="textNumero">Número</label>
 											<h:inputText class="form-control" id="textNumero"
-												value="#{controllerCliente.endereco.numero}" />
+												value="#{controllerEmpresa.endereco.numero}" />
 										</div>
 									</div>
 								</div>
@@ -137,17 +119,17 @@
 									<hr />
 									<div class="row">
 										<div class="col-12 form-group">
-											<h:inputText class="form-control" id="txtLogin"
-												value="#{controllerCliente.login.login}" />
+											<h:inputText id="textLogin" class="form-control"
+												value="#{controllerEmpresa.login.login}" />
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-12">
 											<h:inputText type="password" class="form-control"
-												id="txtSenha" value="#{controllerCliente.login.senha}" />
+												value="#{controllerEmpresa.login.senha}" />
 										</div>
 									</div>
-									<h:commandButton action="#{controllerCliente.update(controllerLogin.currentUser.id)}"
+									<h:commandButton action="#{controllerEmpresa.update(controllerLogin.currentUser.id)}"
 										value="Cadastrar-se" />
 								</div>
 							</div>

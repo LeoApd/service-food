@@ -32,25 +32,48 @@
 			<div class="row">
 				<div class="col-2">
 					<h4>Menu</h4>
-					<h:form>
-						<div class="menu-lateral">
-							<ul class="list-group">
-							  <li class="list-group-item d-flex justify-content-between align-items-center">
-							   	<a href="#">Meus pedidos</a>
-							    <span class="badge badge-primary badge-pill">14</span>
-							  </li>
-							  <li class="list-group-item d-flex justify-content-between align-items-center">
-							  	<a href="/ServiceFood/restricted/produto/cadastroCombo.xhtml">Cadastrar Combo</a>
-							  </li>
-							</ul>
-						</div>
-					</h:form>
+					<div class="menu-lateral">
+						<ul class="list-group">
+						  <li class="list-group-item d-flex justify-content-between align-items-center">
+						    <h:commandLink>
+						    	Meu pedidos
+						    </h:commandLink>
+						    <span class="badge badge-primary badge-pill">14</span>
+						  </li>
+						  <li class="list-group-item d-flex justify-content-between align-items-center">
+						    <h:commandLink>
+						    	Cadastrar produto
+						    </h:commandLink>
+						  </li>
+						</ul>
+					</div>
 				</div>
 				<div class="col-10">
 					<div class="bg" style="background-color: #f2f2f2">
-						<div style="display:flex; justify-content: center; padding-top: 2%;">
-							<h4>Ultimos pedidos</h4>
+						<div >
+							<h4 style="display: flex; justify-content: center; padding-top: 2%;">Cadastrar combo</h4>
 							<hr />
+							<h:form>
+								<div class="container"> 
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="textNome">Nome produto</label> 
+											<h:inputText styleClass="form-control" id="textNome" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="textValor">Valor Unitário</label> 
+											<h:inputText styleClass="form-control" id="textValor" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-12">
+											<label for="textDescricao">Descrição produto</label> 
+											<h:inputTextarea styleClass="form-control" id="textDescricao" />
+										</div>
+									</div>
+									<h:commandButton styleClass="btn btn-primary" value="Cadastrar"/>
+								</div>
+							</h:form>
 						</div>
 						<br />
 					</div>

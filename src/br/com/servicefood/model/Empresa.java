@@ -1,5 +1,7 @@
 package br.com.servicefood.model;
 
+import java.util.ArrayList;
+
 import br.com.servicefood.DAO.EmpresaDAO;
 
 public class Empresa extends EmpresaDAO{
@@ -42,6 +44,15 @@ public class Empresa extends EmpresaDAO{
 	
 	public boolean save() {
 		return super.save(this);
+	}
+	public Empresa find(long id) {
+		return super.find(id);
+	}
+	public boolean update(Empresa empresa) {
+		return super.update(empresa);
+	}
+	public ArrayList<Empresa> listarAll() {
+		return super.listarAll();
 	}
 	
 	

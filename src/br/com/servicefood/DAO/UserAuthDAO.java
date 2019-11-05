@@ -51,7 +51,7 @@ public class UserAuthDAO {
 		ResultSet rs = null;
 		try {
 			conn = Conexao.getConnection();
-			stmt = conn.prepareStatement(LOGIN_CLIENTE);
+			stmt = conn.prepareStatement(LOGIN_EMPRESA);
 			stmt.setString(1, login.getLogin());
 			stmt.setString(2, login.getSenha());
 			
