@@ -13,7 +13,7 @@
 	<div class="corpo-main">
 		<div class="header">
 			<nav class="navbar navbar-light bg-dark ">
-		  		<a class="navbar-brand text-white" href="#">SERVICE FOOD</a>
+		  		<a class="navbar-brand text-white" href="/ServiceFood/restricted/template/indexClienteAuth.xhtml">SERVICE FOOD</a>
 				<h:form styleClass="form-inline">
 					<div class="dropdown">
 						<a class="nav-link dropdown-toggle " role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,7 +36,7 @@
 						<ul class="list-group">
 						  <li class="list-group-item d-flex justify-content-between align-items-center">
 						    <h:commandLink>
-						    	Meu perdidos
+						    	Meu pedidos
 						    </h:commandLink>
 						    <span class="badge badge-primary badge-pill">14</span>
 						  </li>
@@ -45,11 +45,32 @@
 				</div>
 				<div class="col-10">
 					<div class="bg" style="background-color: #f2f2f2">
-						<div style="display: flex;justify-content: center; padding-top: 2%;">
+						<div>
 							<h4 style="display: flex;justify-content: center; padding-top: 2%;">Empresas cadastradas</h4>
-							<hr />
 						</div>
 						<hr />
+						<br />
+						<div class="container-fluid">
+							<div class="row">
+								<ui:repeat var="empresa" value="#{controllerEmpresa.listarAll()}">
+									<div class="col-4">
+										<div class="card" style="width: 18rem;">
+											<img src="/ServiceFood/img/empresa.jpg" class="card-img-top" alt="..."/>
+			  								<div class="card-body">
+			  									<h5 class="card-title">
+													#{empresa.razaoSocial}
+												</h5>
+											</div>
+											<div class="card-body">
+												<h:form>
+											    	<h:commandButton styleClass="card-link btn btn-success" value="Ver detalhe" action="#{controllerCombo.enviarId(empresa.id)}"/>
+											    </h:form>
+											</div>
+										</div>
+									</div>
+								</ui:repeat>
+							</div>
+						</div>
 						<br />
 					</div>
 				</div>

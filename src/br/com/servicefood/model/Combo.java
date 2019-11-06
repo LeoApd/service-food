@@ -1,5 +1,7 @@
 package br.com.servicefood.model;
 
+import java.util.ArrayList;
+
 import br.com.servicefood.DAO.ComboDAO;
 
 public class Combo extends ComboDAO{
@@ -8,7 +10,7 @@ public class Combo extends ComboDAO{
 	private String nome;
 	private String descricao;
 	private long valorUnitario;
-	private Empresa empresa;
+	private long empresa;
 	
 	public long getId() {
 		return id;
@@ -34,11 +36,18 @@ public class Combo extends ComboDAO{
 	public void setValorUnitario(long valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
-	public Empresa getEmpresa() {
+	
+	public long getEmpresa() {
 		return empresa;
 	}
-	public void setEmpresa(Empresa empresa) {
+	public void setEmpresa(long empresa) {
 		this.empresa = empresa;
+	}
+	public ArrayList<Combo> listarAll(long id) {	
+		return super.listarAll(id);
+	}
+	public boolean save() {
+		return super.save(this);
 	}
 	
 	
